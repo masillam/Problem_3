@@ -1,0 +1,43 @@
+++ stockonhand
+
+probe = Curl
+menu = Web Methods Stock on Hand
+title = Web Methods Stock on Hand
+host = wmeaiprd.ce.corp
+extraargs = -Ss;-X;POST;-H;Content-Type: text/html;-d;<?xml version="1.0"?><ceXML version="2.0"><Header><Sender><SystemName>NetXpress-AU</SystemName></Sender><Receiver><SystemName>ERP</SystemName></Receiver><DocumentType>StockOnHandRequest</DocumentType><Language>en</Language></Header><Data><StockOnHandRequest><SoldToPartyID>0010362872</SoldToPartyID><CEWarehouseCode>2000</CEWarehouseCode><ListOfStockItem><StockItem celinenumber="0"><CEItemID>000000000086639338</CEItemID><UnitOfMeasure>EA</UnitOfMeasure></StockItem></ListOfStockItem></StockOnHandRequest></Data><Summary><ProcessingStatus>Requested</ProcessingStatus></Summary></ceXML>
+extrare = /;/
+follow_redirects = no
+include_redirects = no
+pings = 5
+timeout = 40
+urlformat = http://%host%:12999/invoke/CENetXpress.synchronouscall.StockOnHandByWarehouse.handler/getStockOnHandByWarehouse
+
+
+++ Webstatus
+
+probe = Curl
+menu = Website status check
+title = Website status check
+host = localhost
+extraargs = -Ss;-X;POST;-H;Content-Type: text/html;-d;<?xml version="1.0"?><ceXML version="2.0"><Header><Sender><SystemName>NetXpress-AU</SystemName></Sender><Receiver><SystemName>ERP</SystemName></Receiver><DocumentType>StockOnHandRequest</DocumentType><Language>en</Language></Header><Data><StockOnHandRequest><SoldToPartyID>0010362872</SoldToPartyID><CEWarehouseCode>2000</CEWarehouseCode><ListOfStockItem><StockItem celinenumber="0"><CEItemID>000000000086639338</CEItemID><UnitOfMeasure>EA</UnitOfMeasure></StockItem></ListOfStockItem></StockOnHandRequest></Data><Summary><ProcessingStatus>Requested</ProcessingStatus></Summary></ceXML>
+extrare = /;/
+follow_redirects = no
+include_redirects = no
+pings = 5
+timeout = 40
+urlformat = www.google.com
+
+
+++ Webstatus
+
+probe = Curl
+menu = Website Status check
+title = Website status check
+host = localhost
+#extraargs = -Ss;-X;POST;-H;Content-Type: text/html;-d;<?xml version="1.0"?><ceXML version="2.0"><Header><Sender><SystemName>XYZ</SystemName></Sender><Receiver><SystemName>XYZ</SystemName></Receiver><DocumentType>StockOnHandRequest</DocumentType><Language>en</Language></Header><Data><StockOnHandRequest><SoldToPartyID>0010362872</SoldToPartyID><CEWarehouseCode>2000</CEWarehouseCode><ListOfStockItem><StockItem celinenumber="0"><CEItemID>000000000086639338</CEItemID><UnitOfMeasure>EA</UnitOfMeasure></StockItem></ListOfStockItem></StockOnHandRequest></Data><Summary><ProcessingStatus>Requested</ProcessingStatus></Summary></ceXML>
+extrare = /;/
+follow_redirects = no
+include_redirects = no
+pings = 5
+timeout = 40
+urlformat = www.yahoo.com
